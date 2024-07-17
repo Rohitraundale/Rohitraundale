@@ -1,0 +1,62 @@
+5 Types of String Program :-
+1) String Reversal 
+def reverse_string(s):
+    return s[::-1]
+
+input_string = "Hello, World!"
+reversed_string = reverse_string(input_string)
+print("Original String:", input_string)
+print("Reversed String:", reversed_string)
+.
+2) Palindrome Check
+def is_palindrome(s):
+    cleaned = ''.join(e for e in s if e.isalnum()).lower()
+    return cleaned == cleaned[::-1]
+
+input_string = "A man, a plan, a canal, Panama"
+print(f"Is '{input_string}' a palindrome?:", is_palindrome(input_string))
+.
+3) String Anagram
+def are_anagrams(s1, s2):
+    return sorted(s1) == sorted(s2)
+
+string1 = "listen"
+string2 = "silent"
+print(f"Are '{string1}' and '{string2}' anagrams?:", are_anagrams(string1, string2))
+.
+4) Character Frequency Count
+from collections import Counter
+
+def char_frequency(s):
+    return Counter(s)
+
+input_string = "character"
+frequency = char_frequency(input_string)
+print(f"Character frequency in '{input_string}':", frequency)
+.
+5)String def compress_string(s):
+    if not s:
+        return ""
+
+    compressed = []
+    count = 1
+    last_char = s[0]
+
+    for char in s[1:]:
+        if char == last_char:
+            count += 1
+        else:
+            compressed.append(last_char + str(count))
+            last_char = char
+            count = 1
+
+    compressed.append(last_char + str(count))
+    compressed_string = ''.join(compressed)
+
+    return compressed_string if len(compressed_string) < len(s) else s
+
+input_string = "aabcccccaaa"
+compressed_string = compress_string(input_string)
+print(f"Original String: {input_string}")
+print(f"Compressed String: {compressed_string}")
+Compression
